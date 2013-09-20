@@ -1,0 +1,11 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @album.title
+
+=render "shared/fileupload"
+
+= link_to 'Edit', edit_album_path(@album)
+\|
+= link_to 'Back', albums_path

@@ -1,0 +1,9 @@
+%h1 Editing album
+
+= render 'form'
+
+=render "shared/fileupload"
+
+= link_to 'Show', @album
+\|
+= link_to 'Back', albums_path
