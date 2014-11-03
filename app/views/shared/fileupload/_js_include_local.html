@@ -75,6 +75,16 @@
             });
         });
 
+        $('#fileupload').bind('fileuploadsubmit', function (e, data) {
+            var inputs = data.context.find(':input');
+            if (inputs.filter(function () {
+                    return !this.value && $(this).prop('required');
+                }).first().focus().length) {
+                data.context.find('button').prop('disabled', false);
+                return false;
+            }
+            data.formData = inputs.serializeArray();
+        });
 
     });
 

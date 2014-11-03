@@ -3,12 +3,13 @@ class Picture < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :album
+  attr_accessible :title, :avatar
 
   #one convenient method to pass jq_upload the necessary information
   def to_jq_upload
     {
       "name" => read_attribute(:avatar),
-	  "title" => title,
+	    "title" => title,
       "size" => avatar.size,
       "url" => avatar.url,
       "thumbnail_url" => avatar.thumb.url,
